@@ -1,7 +1,7 @@
 ﻿Console.Clear();
 
 Console.Write("Enter number: ");
-int n = int.Parse(Console.ReadLine());
+int n = int.Parse(Console.ReadLine()!);
 int k = 10;
 int result = n % k;
 
