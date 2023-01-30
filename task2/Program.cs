@@ -5,4 +5,5 @@ Console.WriteLine(num);
 
 int a1 = num / 100;
 int a2 = num % 10;
-Console.Write($"{num} -> {a1}{a2}");
+int a3 = a1 * 10 + a2;
+Console.Write($"{num} -> {a3}");
