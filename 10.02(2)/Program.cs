@@ -17,18 +17,14 @@ int[] GetArray(int size, int MinValue, int MaxValue)
 int SumElements(int[] array)
 {
     int Sum = 0;
-    for (int i = 0; array[i] %2 != 0;) 
+    for (int i = 1; i < array.Length; i += 2)
     {
-        Sum += i;
-    //     if (array[i] % 2 != 0)
-    //     {
-    //         Sum = Sum + i;
-    //     }
+        Sum += array[i];
     }
     return Sum;
 }
 
-int[] array = GetArray(5, 1, 10);
+int[] array = GetArray(10, 1, 10);
 Console.WriteLine(string.Join(",", array));
 int N = SumElements(array);
 Console.WriteLine($"Summ of odd elements is {N}");
