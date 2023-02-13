@@ -1,19 +1,19 @@
 ﻿// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 // [3 7 22 2 78] -> 76
 Console.Clear();
-int[] GetArray(int size, int MinValue, int MaxValue)
+double [] GetArray(int size, double MinValue, double MaxValue)
 {
-    int[] Result = new int[size];
+    double[] Result = new double[size];
 
     for (int i = 0; i < size; i++)
     {
-        Result[i] = new Random().Next(MinValue, MaxValue + 1);
+        Result[i] = new Random().NextDouble() * (MaxValue - MinValue) + MinValue;
     }
     return Result;
 }
-int FindMax(int[] array)
+double FindMax(double[] array)
 {
-    int max = array[0];
+    double max = array[0];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i] > max)
@@ -23,9 +23,9 @@ int FindMax(int[] array)
     }
     return max;
 }
-int FindMin(int[] array)
+double FindMin(double[] array)
 {
-    int min = array[0];
+    double min = array[0];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i] < min)
@@ -35,7 +35,7 @@ int FindMin(int[] array)
     }
     return min;
 }
-int[] array = GetArray(5, 1, 10);
+double[] array = GetArray(5, 1, 100);
 Console.WriteLine(string.Join(", ", array));
-int MaxMin = FindMax(array) - FindMin(array);
+double MaxMin = FindMax(array) - FindMin(array);
 Console.WriteLine($"{MaxMin}"!);
