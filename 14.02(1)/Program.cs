@@ -3,18 +3,15 @@
 // 1, -7, 567, 89, 223-> 3
 Console.Clear();
 
-Console.Write("How many numbers do you want to enter? - ");
-int size = int.Parse(Console.ReadLine()!);
-Console.Write("Enter numbers separated by space - ");
-String[] NewArray = Console.ReadLine().Split();
-Console.WriteLine(String.Join(", ", NewArray));
+Console.Write("Enter numbers separated by space: ");
+int [] NewArray = Console.ReadLine().Split().Select(x => int.Parse(x)).ToArray();
 
 int CountPositiveElements(int[] NewArray)
 {
     int Count = 0;
-    foreach (int i in NewArray)
+    for (int i = 0; i < NewArray.Length; i++)
     {
-      if (i > 0)
+      if (NewArray[i] > 0)
       {
         Count++;
       }  
@@ -22,5 +19,4 @@ int CountPositiveElements(int[] NewArray)
     return Count;
 }
 
-int N = CountPositiveElements(NewArray);
-Console.WriteLine($"There are {N} positive numbers"!);
+Console.WriteLine($"There are {CountPositiveElements(NewArray)} positive numbers"!);
