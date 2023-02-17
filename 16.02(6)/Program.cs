@@ -30,27 +30,19 @@ void PrintArray(int[,] inArray)
     }
 }
 
+int[,] array2D = GetArray(4, 4, -10, 10);
+PrintArray(array2D);
+
 Console.Write("Введите номер строки массива: ");
 int i = int.Parse(Console.ReadLine()!);
 Console.Write("Введите номер столбца массива: ");
 int j = int.Parse(Console.ReadLine()!);
 
-int[,] array2D = GetArray(4, 4, -10, 10);
-PrintArray(array2D);
-
 if (i > 0 && i < array2D.GetLength(0) && j > 0 && i < array2D.GetLength(1))
 {
-    Console.WriteLine($"Элемент = {array2D[i-1, j-1]}"!);
+    Console.WriteLine($"Элемент = {array2D[i - 1, j - 1]}"!);
 }
 else
 {
     Console.WriteLine($"Элемент в массиве не существует"!);
 }
-
-
-
-
-// Console.WriteLine();
-// GetSqrArray(array2D);
-// PrintArray(array2D);
-
