@@ -1,14 +1,10 @@
 ﻿// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 
+// Это возможно при соблюдении условия: кол-во столбцов матр1 = кол-во строк матр2 !!!
+
 Console.Clear();
 
-// int ReadInt(string message)
-// {
-//     Console.Write(message);
-//     return Convert.ToInt32(Console.ReadLine());
-// }
-
-int[,] GetFirstArray(int row, int col, int minValue, int maxValue)
+int[,] GetArray(int row, int col, int minValue, int maxValue)
 {
     int[,] array = new int[row, col];
     for (int i = 0; i < row; i++)
@@ -20,19 +16,6 @@ int[,] GetFirstArray(int row, int col, int minValue, int maxValue)
     }
     return array;
 }
-
-// int[,] GetSecondArray(int row, int col, int minValue, int maxValue)
-// {
-//     int[,] array = new int[row, col];
-//     for (int k = 0; k < row; k++)
-//     {
-//         for (int l = 0; l < col; l++)
-//         {
-//             array[k, l] = new Random().Next(minValue, maxValue + 1);
-//         }
-//     }
-//     return array;
-// }
 
 void PrintArray(int[,] inArray)
 {
@@ -46,29 +29,28 @@ void PrintArray(int[,] inArray)
     }
 }
 
-int[,] FirstArray = GetFirstArray(2, 2, 1, 10);
-PrintArray(FirstArray);
-Console.WriteLine();
-int[,] SecondArray = GetFirstArray(2, 2, 1, 10);
-PrintArray(SecondArray);
-
-int[,] Multiply(int[,] array)
+int[,] MultiplMatrix(int[,] array1, int[,] array2)
 {
-    int[,] FinalArray = new int[array.GetLength(1), array.GetLength(0)];
-    // int k = 0;
-    // int l = 0;
-    for (int k = 0; k < array.GetLength(0); k++)
+    int[,] arrayMultipl = new int[array1.GetLength(0), array2.GetLength(1)];
+    for (int i = 0; i < arrayMultipl.GetLength(0); i++)
     {
-        for (int l = 0; l < array.GetLength(1); l++)
+        for (int j = 0; j < arrayMultipl.GetLength(1); j++)
         {
-            FinalArray[k, l] = 0;
-            FinalArray[k, l] = FirstArray[i, j] * SecondArray[i, j];
+            arrayMultipl[i, j] = array1[i, j] * array2[i, j] + array1[i, j + 1] * array2[i + 1, j];
+            // i++;
+            // j++;
         }
     }
-    // return Multiply;
+    return arrayMultipl;
 }
+
+int[,] FirstArray = GetArray(2, 2, 1, 10);
+PrintArray(FirstArray);
 Console.WriteLine();
-int[,] FinalArray = Multiply;
+int[,] SecondArray = GetArray(2, 2, 1, 10);
+PrintArray(SecondArray);
+Console.WriteLine();
+
+
+int[,] FinalArray = MultiplMatrix(FirstArray, SecondArray);
 PrintArray(FinalArray);
-
-
