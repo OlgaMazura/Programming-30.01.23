@@ -27,5 +27,5 @@ void PrintArray(double[,] NewArray)
     }
 }
 
-double[,] array2D = GetDoubleArray(3, 3, 1, 10);
+double[,] array2D = GetDoubleArray(3, 3, -10, 10);
 PrintArray(array2D);

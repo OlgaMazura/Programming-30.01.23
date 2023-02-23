@@ -30,19 +30,23 @@ void PrintArray(int[,] inArray)
     }
 }
 
-int[,] array2D = GetArray(4, 4, -10, 10);
+void FindElement(int[,] array) 
+{
+    Console.Write("Enter line: ");
+    int row = int.Parse(Console.ReadLine()!); 
+    Console.Write("Enter column: ");
+    int column = int.Parse(Console.ReadLine())!; 
+
+    if (row < 0 | row > array.GetLength(0) | column < 0 | column > array.GetLength(1))
+    {
+        Console.WriteLine("There is no such element");
+    }
+    else
+    { 
+        Console.WriteLine($"Element = {array[row - 1, column - 1]}");
+    }
+}
+
+int[,] array2D = GetArray(2, 2, 1, 10);
 PrintArray(array2D);
-
-Console.Write("Введите номер строки массива: ");
-int i = int.Parse(Console.ReadLine()!);
-Console.Write("Введите номер столбца массива: ");
-int j = int.Parse(Console.ReadLine()!);
-
-if (i > 0 && i < array2D.GetLength(0) && j > 0 && i < array2D.GetLength(1))
-{
-    Console.WriteLine($"Элемент = {array2D[i - 1, j - 1]}"!);
-}
-else
-{
-    Console.WriteLine($"Элемент в массиве не существует"!);
-}
+FindElement(array2D);
